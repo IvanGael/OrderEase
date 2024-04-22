@@ -1,0 +1,47 @@
+import 'package:flutter/material.dart';
+
+class KeyboardKey extends StatefulWidget {
+  final dynamic label;
+  final dynamic value;
+  final Widget? customWidget;
+  final ValueSetter<dynamic> onTap;
+
+  const KeyboardKey({super.key, 
+  required this.label, required this.value, this.customWidget, required this.onTap});
+
+  @override
+  State<KeyboardKey> createState() => _KeyboardKeyState();
+}
+
+class _KeyboardKeyState extends State<KeyboardKey> {
+
+
+  renderLabel(){
+    if(widget.label is Widget){
+      return widget.label;
+    }
+    return Text(
+            widget.label,
+            style: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold
+            ),
+          );
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: (){
+        widget.onTap(widget.value);
+      },
+      child: AspectRatio(
+        aspectRatio: 2,
+        child: Center(
+          child: renderLabel(),
+        ),
+      ),
+    );
+  }
+}
