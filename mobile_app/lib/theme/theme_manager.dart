@@ -8,7 +8,7 @@ class ThemeManager {
     colorScheme: ColorScheme.light(
       primary: Utils.getColorFromHex("#4d4f58"), 
       secondary: Utils.getColorFromHex("#132a3a")
-    ).copyWith(background: Utils.getColorFromHex("#3adca2")),
+    ),
     visualDensity: VisualDensity.adaptivePlatformDensity
   );
 
